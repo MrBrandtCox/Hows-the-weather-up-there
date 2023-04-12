@@ -1,0 +1,6 @@
+body{
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    display: flex;
+    margin: 0px;
+}
