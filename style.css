@@ -1,6 +1,6 @@
 body{
     min-height: 100vh;
-    background-color: black;
+    background-color: #eee9ff;
     background-size: 100vw 100vh;
     display: flex;
     margin: 0px;
@@ -19,8 +19,8 @@ aside section{
     align-items: center;
     width: 95%;
     height: 95%;
-    background-color: black; /**/
-    padding: 40px 0;
+    background-color: white; 
+    padding: 30px 0;
     border-radius: 50pt;
 }
 
@@ -36,13 +36,50 @@ aside form {
     display: flex;
     min-height: 40px;
     width: 80%;
-    background-color: black;
+    background-color: white;
     border: 2px solid black;
+    border-radius: 50pt;
 }
 
 input{
     width: 80%;
     border: none;
     outline: none;
+    border-radius: 50pt 0 0 50pt;
+}
 
+form button {
+    border: none;
+    background-color: #6058ff;
+    color: white;
+    border-radius: 0 50pt 50pt 0;
+    margin-left: 30px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    min-height: 100vh;
+}
+
+#current {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+}
+
+#forecast {
+    display: flex;
+    align-items: center;
+    height: 60%;
+}
+
+#current, #forecast {
+    background-color: white;
+    border-radius: 50pt;
 }
