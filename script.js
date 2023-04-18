@@ -38,7 +38,7 @@ function renderCurrentWeather (data) {
     current.append(name);
 
     let date = document.createElement("div");
-    date.textContent = data.dt;
+    date.textContent = new Date(data.dt * 1000).toLocaleTimeString("en-US", {weekday: "long", year: "numeric", month: "short", day: "numeric"});
     current.append(date);
 
     let temp = document.createElement("div");
