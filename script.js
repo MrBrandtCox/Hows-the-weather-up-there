@@ -91,11 +91,10 @@ let forecastHigh = -100;
 let forecastLow = 200;
 let avgWindSpeed = 0;
 let avgHumidity = 0;
-let forecastIconSrc;
 
 function renderForecast (data) {
     let infoIndex = [7, 15, 23, 31, 39];
-    let iconIndex = [ ];
+    //let iconIndex = []; 
     for (let i = 0; i < data.list.length; i++) {
         let forecastCard = document.createElement("div");
         let forecastIcon = document.createElement("img");
@@ -111,27 +110,35 @@ function renderForecast (data) {
 
         avgWindSpeed = avgWindSpeed + data.list[i].wind.speed;
 
+
         if(infoIndex.includes(i)) {
             console.log("i", i);
             hiTemp = document.createElement("div");
-            hiTemp.textContent = "High: " + forecastHigh;
+            hiTemp.textContent = "High: " + parseInt(forecastHigh);
             forecastCard.append(hiTemp);
             forecastHigh = -100;
 
             lowTemp = document.createElement("div");
-            lowTemp.textContent = "Low: " + forecastLow;
+            lowTemp.textContent = "Low: " + parseInt(forecastLow);
             forecastCard.append(lowTemp);
             forecastLow = 200;
 
             humidity = document.createElement("div");
-            humidity.textContent = "Humidity: " + avgHumidity / 8;
+            humidity.textContent = "Humidity: " + parseInt(avgHumidity / 8);
             forecastCard.append(humidity);
             avgHumidity = 0;
 
             windSpeed = document.createElement("div");
-            windSpeed.textContent = "Wind: " + avgWindSpeed / 8;
+            windSpeed.textContent = "Wind: " + parseInt(avgWindSpeed / 8);
             forecastCard.append(windSpeed);
             forecastHigh = 0;
+
+            forecastIcon.src = 
+                "https://openweathermap.org/img/wn/" +
+                data.list[i].weather[0].icon +
+                "@2x.png";
+            forecastCard.append(forecastIcon);
+
 
             forecast.append(forecastCard);
             //hiTemp.textContent = "High: " + forecastHigh;
