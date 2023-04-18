@@ -53,8 +53,8 @@ function renderCurrentWeather (data) {
     windSpeed.textContent = data.wind.speed;
     current.append(windSpeed);
 
-    let icon = document.createElement("div");
-    icon.textContent = data.icon;
+    let icon = document.createElement("img");
+    icon.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
     current.append(icon);
 }
 
