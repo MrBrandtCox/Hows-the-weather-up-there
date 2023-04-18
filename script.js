@@ -30,9 +30,34 @@ let APIKey = "341aaf80a11931f9bf2fb6f0aac538b4"; // my api key
         //console.log(data);
     //});
 
+let storedSearches;
+
+function renderLocalStorage () {
+    searchHistory.innerHTML = "";
+
+    for (let i = 0; i < storedSearches.length; i++) {
+    let searchHistoryDiv = document.createElement("div");
+    searchHistoryDiv.className = "searchHistoryDiv";
+
+    let searchHistoryBtn = document.createElement("button");
+    searchHistoryBtn.textContent = storedSearches[i];
+    searchHistoryDiv.append(searchHistoryBtn);
+    searchHistory.append(searchHistoryBtn);
+    }
+}
+
+function getLocalStorage () {
+    storedSearches = [];
+    storedSearches = JSON.parse(localStorage.getItem("searches")) || []; // ||= "or"
+    renderLocalStorage();
+}
+
+getLocalStorage();
+
 // current conditions
 // show city name, date, icon, temp, humidity, wind speed
 function renderCurrentWeather (data) {
+    current.innerHTML = "";
     let name = document.createElement("div");
     name.textContent = data.name;
     current.append(name);
@@ -93,6 +118,7 @@ let avgWindSpeed = 0;
 let avgHumidity = 0;
 
 function renderForecast (data) {
+    forecast.innerHTML = "";
     let infoIndex = [7, 15, 23, 31, 39];
     //let iconIndex = []; 
     for (let i = 0; i < data.list.length; i++) {
@@ -174,6 +200,9 @@ function searchCity (e) {
     e.preventDefault();
     displayCurrent(searchInput.value);
     displayForecast(searchInput.value);
+    storedSearches.push(searchInput.value); 
+    localStorage.setItem("search", JSON.stringify(storedSearches));
+    getLocalStorage();
 }
 
 searchForm.addEventListener("submit", searchCity);
