@@ -3,7 +3,7 @@ let searchInput = document.getElementById("searchInput");
 let current = document.getElementById("current");
 let forecast = document.getElementById("forecast");
 let searchHistory = document.getElementById("searchHistory");
-let APIKey = "341aaf80a11931f9bf2fb6f0aac538b4"; // my api key
+let APIKey = "341aaf80a11931f9bf2fb6f0aac538b4"; // --------my api key
 
 
 let storedSearches;
@@ -24,15 +24,15 @@ function renderLocalStorage () {
 
 function getLocalStorage () {
     storedSearches = [];
-    storedSearches = JSON.parse(localStorage.getItem("searches")) || []; // ||= "or"
+    storedSearches = JSON.parse(localStorage.getItem("searches")) || []; //------- ||= "or"
     renderLocalStorage();
 }
 
 getLocalStorage();
 
 
-// current conditions
-// show city name, date, icon, temp, humidity, wind speed
+//------- current conditions
+//------- show city name, date, icon, temp, humidity, wind speed
 function renderCurrentWeather (data) {
     current.innerHTML = "";
     let name = document.createElement("div");
@@ -71,7 +71,7 @@ function displayCurrent(name) {
     let cityQuery = 
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName + 
-    "&units=imperial" +
+    "&units=imperial" + //------ Set to display in imperial 
     "&appid=" +
     APIKey;
 
@@ -91,7 +91,7 @@ function displayCurrent(name) {
 
 
 
-// 5 day forecast below
+//------ 5 day forecast below
 
 let forecastHigh = -100;
 let forecastLow = 200;
@@ -101,7 +101,7 @@ let avgHumidity = 0;
 function renderForecast (data) {
     forecast.innerHTML = "";
     let infoIndex = [7, 15, 23, 31, 39];
-    //let iconIndex = []; 
+    
     for (let i = 0; i < data.list.length; i++) {
         let forecastCard = document.createElement("div");
         let forecastIcon = document.createElement("img");
@@ -157,7 +157,7 @@ function displayForecast (name) {
     let forecastQuery = 
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     cityName + 
-    "&units=imperial" +
+    "&units=imperial" + //------ Set to display in imperial
     "&appid=" +
     APIKey;
 
@@ -183,4 +183,5 @@ function searchCity (e) {
     getLocalStorage();
 }
 
+//------ Event listener for searching
 searchForm.addEventListener("submit", searchCity);
