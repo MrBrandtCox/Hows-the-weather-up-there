@@ -1,6 +1,6 @@
 body{
     min-height: 100vh;
-    background-color: #eee9ff;
+    background-color: #6058ff;
     background-size: 100vw 100vh;
     display: flex;
     margin: 0px;
@@ -12,7 +12,8 @@ aside{
     width: 30%;
     height: 100%;
     min-height: 100vh;
-    padding-top: 20px
+    padding-top: 20px;
+    margin-left: 20px;
 }
 
 aside section{
@@ -66,29 +67,35 @@ main {
     min-height: 100vh;
 }
 
+h2{
+    font-family: 'Courier New', Courier, monospace, serif, sans-serif;
+}
+
 #current {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 30%;
+    padding: 20px 200px 20px 200px;
+    margin: 20px;
 }
 
 #forecast {
     display: flex;
     align-items: center;
     height: 60%;
+    padding: 0px 250px 0px 250px;
+    margin: 20px;
 }
 
 #current, #forecast {
-    background-color: white;
+    background: rgb(96,88,255);
+    background: linear-gradient(0deg, rgba(96,88,255,1) 0%, rgba(238,233,255,1) 100%);
     border-radius: 50pt;
 }
 
 
-
-
-/* Review media queries*/
 
 @media (max-width: 660px) {
     #forecast {

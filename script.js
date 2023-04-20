@@ -5,30 +5,6 @@ let forecast = document.getElementById("forecast");
 let searchHistory = document.getElementById("searchHistory");
 let APIKey = "341aaf80a11931f9bf2fb6f0aac538b4"; // my api key
 
-//create input to search city
-
-// test api endpoints
-//let cityName = "Salt Lake City";
-//let cityQuery = 
-    //"https://api.openweathermap.org/data/2.5/weather?q=" +
-    //cityName + 
-    //"&appid=" +
-    //APIKey;
-
-
-    //let forecastQuery = 
-    //"https://api.openweathermap.org/data/2.5/forecast?q=" +
-    //cityName +
-    //"&appid=" +
-    //APIKey;
-
-//fetch(forecastQuery)
-    //.then(function (res) {
-        //return res.json();
-    //})
-    //.then(function (data) {
-        //console.log(data);
-    //});
 
 let storedSearches;
 
@@ -53,6 +29,7 @@ function getLocalStorage () {
 }
 
 getLocalStorage();
+
 
 // current conditions
 // show city name, date, icon, temp, humidity, wind speed
@@ -112,6 +89,10 @@ function displayCurrent(name) {
 }
 
 
+
+
+// 5 day forecast below
+
 let forecastHigh = -100;
 let forecastLow = 200;
 let avgWindSpeed = 0;
@@ -167,9 +148,6 @@ function renderForecast (data) {
 
 
             forecast.append(forecastCard);
-            //hiTemp.textContent = "High: " + forecastHigh;
-            //forecastCard.append(hiTemp);
-            //forecastHigh = -100;
         }
     }
 }
@@ -206,10 +184,3 @@ function searchCity (e) {
 }
 
 searchForm.addEventListener("submit", searchCity);
-
-// future conditions
-
-
-// save the city in local storage and append to page
-
-// clicking on city displays the forecast again
