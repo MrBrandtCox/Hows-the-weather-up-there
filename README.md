@@ -35,7 +35,7 @@ THEN I am again presented with current and future conditions for that city.
 ![Screenshot 2023-04-19 at 7 01 17 PM](https://user-images.githubusercontent.com/103869234/233235005-fe756d3d-9850-4124-9c1a-037536ab20d4.png)
 
 ## Deployed URL
-
+https://mrbrandtcox.github.io/Hows-the-weather-up-there/
 
 ## License
 [MIT](https://github.com/MrBrandtCox/Hows-the-weather-up-there/blob/main/LICENSE)
